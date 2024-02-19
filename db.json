@@ -11,6 +11,36 @@
       "name": "Shahbaz",
       "email": "shahbazarmy@gmail.com",
       "password": "newshahbadquetter"
+    },
+    {
+      "id": "41d2",
+      "name": "Wali Muhammad Memon",
+      "email": "walimuhammad971@gmail.com",
+      "password": "Walistars"
+    },
+    {
+      "id": "afcd",
+      "name": "Qayyum",
+      "email": "qayyum12@gmail.com",
+      "password": "qdwedwdwsdasdsd"
+    },
+    {
+      "id": "dad2",
+      "name": "Qadir",
+      "email": "ayinqouh12@gmail.com",
+      "password": "qair123"
+    },
+    {
+      "id": "09a0",
+      "name": "wali",
+      "email": "wali@gmail.com",
+      "password": "Wali"
+    },
+    {
+      "id": "cd59",
+      "name": "walim",
+      "email": "walim@gmail.com",
+      "password": "Walistars"
     }
   ]
 }
