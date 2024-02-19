@@ -1,0 +1,16 @@
+{
+  "seller": [
+    {
+      "id": "1c12",
+      "name": "Wali Muhammad",
+      "email": "wm401238@gmail.com",
+      "password": "abc123"
+    },
+    {
+      "id": "f987",
+      "name": "Shahbaz",
+      "email": "shahbazarmy@gmail.com",
+      "password": "newshahbadquetter"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<div class="seller-auth">
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form #formSignUp="ngForm" (submit)="signUp(formSignUp.value)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" ngModel required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</div>

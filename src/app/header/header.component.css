@@ -1,0 +1,92 @@
+.nav-bar-wrapper {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+  }
+  
+  .nav-flex-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 10px;
+  }
+  
+
+  .logo-box img {
+    width: 100px;
+  }
+
+  .search-box {
+    flex-grow: 1;
+    display: flex;
+  }
+  
+  .search-box input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+  }
+
+  .search-box input[type="text"]:focus{
+   border: none;
+   outline: none;
+  }
+  
+  .search-box button {
+    padding: 8px 15px;
+    background-color: #c1a64f; 
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .5s;
+  }
+  
+  .search-box button:hover {
+    background-color: #a89044; 
+  }
+  
+  .ui-list ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0 0 0 15px;
+    justify-content: center;
+  }
+  
+  .ui-list li {
+    margin-right: 20px;
+  }
+  
+  .ui-list a {
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+    font-size: 13px;
+  }
+  
+  .ui-list a:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c1a64f;
+    transition: width 0.3s ease;
+  }
+  
+  .ui-list a:hover:after {
+    width: 100%; 
+  }
+  
+  .ui-list a.active:after {
+    width: 100%;
+  }
+
+  .ui-list {
+    flex: 1;
+}
