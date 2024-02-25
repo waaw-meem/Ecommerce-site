@@ -62,3 +62,13 @@ p.info-link a {
     color: red;
     text-align: center;
 }
+
+textarea{
+    width: 100%;
+}
+
+.newProduct{
+    color: darkgreen;
+    text-align: center;
+}
+

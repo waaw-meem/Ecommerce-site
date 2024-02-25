@@ -1,1 +1,15 @@
-<p>seller-home works!</p>
+<h2>All Product List</h2>
+<div class="flex-wrapper">
+    <p class="delete-msg">{{deleteMessage}}</p>
+<div class="product-card" *ngFor="let item of productArray">
+    <img src={{item.imageUrl}} alt="Product Image" class="product-image">
+    <div class="product-details">
+        <h2 class="product-name">{{item.name}}</h2>
+        <p class="product-category">{{item.category}}</p>
+        <p class="product-price">{{item.price}}</p>
+        <p class="product-description">{{item.description}}</p>
+        <button (click)="deleteSingleProduct(item.id)">DELETE</button>
+        <button [routerLink]="'/seller-update-product/' + item.id">Update</button>
+    </div>   
+</div>
+</div>

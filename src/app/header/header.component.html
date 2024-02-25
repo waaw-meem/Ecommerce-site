@@ -1,14 +1,19 @@
 <nav class="nav-bar-wrapper">
     <div class="nav-flex-wrapper">
       <div class="logo-box">
-        <img src="../../assets/images/pmlogo.png" alt="logo"/>
+        <a routerLink="/"><img src="../../assets/images/pmlogo.png" alt="logo"/></a>
       </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search Products" />
+      <div *ngIf="menuType === 'default'" class="search-box">
+        <input type="text" (input)="searchProduct($event)" placeholder="Search Products" />
         <button>Search</button>
+        <ul class="search-list" *ngIf="searchProductResult && searchProductResult.length > 0">
+          <li *ngFor="let item of searchProductResult">
+            <a>{{item.name}}</a>
+          </li>
+        </ul>
       </div>
-      <div class="ui-list">
-        <ul>
+      <div class="ui-list" [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'">
           <li><a routerLink="">Home</a></li>
           <li><a href="#">Categories</a></li>
           <li><a routerLink="seller">Seller</a></li>
@@ -16,6 +21,13 @@
           <li><a href="#">Login</a></li>
           <li><a href="#">Cart(0)</a></li>
         </ul>
+        <ul *ngSwitchCase="'seller'">
+          <li><a  routerLink="seller-home">Product List</a></li>
+          <li><a routerLink="seller-add-product">Add Product</a></li>
+          <li><a (click)="logOut()">Logout</a></li>
+          <li><a href="#">{{sellerName | titlecase}}</a></li>
+        </ul>
       </div>
     </div>
   </nav>
+  
