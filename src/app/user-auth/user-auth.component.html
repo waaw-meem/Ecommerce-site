@@ -1,0 +1,48 @@
+<div class="seller-auth">
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form #userSignUp="ngForm" (submit)="userAuth(userSignUp.value)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" ngModel required>
+            </div>
+            <div class="form-group">
+            <p class="info-link">Already have an Account? Click here <a (click)="goToLogin()">Login</a></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+
+
+    <!------ Login Form ------>
+    <!-- <p class="error-p">{{authError}}</p> -->
+    <!-- <div class="form-container">
+        <h2>Login Form</h2>
+        <form #userSignIn="ngForm" (ngSubmit)="userSignIn(userSignIn.value)">
+        <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" ngModel required>
+            </div>
+            <div class="form-group">
+                <p class="info-link">Don't have an Account? Click here <a (click)="goToSignUp()">SignUp</a></p>
+                </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div> -->
+</div>

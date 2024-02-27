@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="flex-wrapper" *ngFor="let item of searchResult">
+        <div class="flex-right-wrapper">
+          <a routerLink="/details/{{item.id}}">
+            <img src="{{item.imageUrl}}" alt="">
+          </a>
+        </div>
+        <div class="flex-left-wrapper">
+            <h6>{{item.name}}</h6>
+            <p>{{item.price}}</p>
+            <p>{{item.category}}</p>
+            <p>{{item.description}}</p>
+        </div>
+    </div>
+</div>

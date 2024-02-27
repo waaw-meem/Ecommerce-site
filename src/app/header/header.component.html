@@ -4,11 +4,11 @@
         <a routerLink="/"><img src="../../assets/images/pmlogo.png" alt="logo"/></a>
       </div>
       <div *ngIf="menuType === 'default'" class="search-box">
-        <input type="text" (input)="searchProduct($event)" placeholder="Search Products" />
-        <button>Search</button>
-        <ul class="search-list" *ngIf="searchProductResult && searchProductResult.length > 0">
+        <input type="text" #inputSearchValue (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search Products" />
+        <button (click)="searchValue(inputSearchValue.value)">Search</button>
+        <ul class="search-list">
           <li *ngFor="let item of searchProductResult">
-            <a>{{item.name}}</a>
+            <a (mousedown)="redirectToSearch(item.id)">{{item.name}}</a>
           </li>
         </ul>
       </div>
@@ -18,7 +18,7 @@
           <li><a href="#">Categories</a></li>
           <li><a routerLink="seller">Seller</a></li>
           <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a routerLink="user-auth">Login</a></li>
           <li><a href="#">Cart(0)</a></li>
         </ul>
         <ul *ngSwitchCase="'seller'">

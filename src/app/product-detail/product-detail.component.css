@@ -1,0 +1,31 @@
+.flex-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 30px;
+}
+
+.flex-wrapper-counter {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    grid-gap: 20px;
+}
+
+.flex-wrapper-counter button {
+    width: 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.flex-wrapper-counter p {
+    font-size: 24px;
+    margin: 0;
+}
+
+.flex-wrapper-btn {
+    display: flex;
+    grid-gap: 20px;
+}
+

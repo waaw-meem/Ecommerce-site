@@ -12,10 +12,9 @@ import { product } from '../data-type';
 
 export class HeaderComponent implements OnInit {
  // Functionality For Changing NavBar
-
  menuType:string = 'default'
  sellerName!:string
- searchProductResult: product[] = [];
+ searchProductResult:undefined | product[]
 
  constructor(private router:Router,private searchAPI:ProductService){}
 
@@ -46,21 +45,31 @@ export class HeaderComponent implements OnInit {
   this.router.navigate(['/'])
  }
 
- // Search Product API
- searchProduct(event: Event): void {
-  const query = (event.target as HTMLInputElement).value.trim();
-  if (query) {
-    this.searchAPI.searchProducts(query).subscribe((data: product[]) => {
-      this.searchProductResult = data;
-    });
-  } else {
-    this.searchProductResult = [];
+
+ searchProduct(query:KeyboardEvent){
+  if(query){
+    const element = query.target as HTMLInputElement
+    this.searchAPI.searchProducts(element.value).subscribe((data) => {
+      console.log(data)
+      if(data.length>5){
+        data.length = 5
+      }
+      this.searchProductResult = data
+    })
   }
-}
+ }
 
-hideSearchBar(){
-  this.searchProductResult = []
-}
+ hideSearch(){
+  this.searchProductResult = undefined
+ }
 
+ searchValue(val:string){
+  this.router.navigate([`search/${val}`])
+ }
 
+ redirectToSearch(id:string){
+  this.router.navigate(['/search/'+id])
+ }
+
+ 
 }

@@ -1,0 +1,24 @@
+<div class="row" *ngIf="singleProductDetail">
+    <div class="flex-wrapper">
+        <div class="flex-right-wrapper">
+            <img src="{{singleProductDetail.imageUrl}}" alt="">
+        </div>
+        <div class="flex-left-wrapper">
+            <h6>{{singleProductDetail.name}}</h6>
+            <p>{{singleProductDetail.price}}</p>
+            <p>{{singleProductDetail.category}}</p>
+            <p>{{singleProductDetail.description}}</p>
+
+            <div class="flex-wrapper-btn">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="flex-wrapper-counter">
+                <button (click)="handleButton('minus')">-</button>
+                <p>{{productQauntity}}</p>
+                <button (click)="handleButton('plus')">+</button>
+            </div>
+        </div>
+    </div>
+</div>

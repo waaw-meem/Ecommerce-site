@@ -4,7 +4,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item" [class.active]="i === 0" *ngFor="let product of popularProducts; let i = index">
-        <img [src]="product.imageUrl" class="d-block w-100" alt="{{ product.name }}">
+        <a routerLink="/details/{{product.id}}"><img [src]="product.imageUrl" class="d-block w-100" alt="{{ product.name }}"></a>
         <div class="carousel-caption d-none d-md-block">
           <h5>{{ product.name }}</h5>
           <p>{{ product.description }}</p>
@@ -35,7 +35,7 @@
                     <div class="product-info">{{singleItem.description}}</div>
                 </div>
                 <div class="product-action">
-                    <a href="#" class="btn btn-primary">View Details</a>
+                    <a routerLink="/details/{{singleItem.id}}" class="btn btn-primary">View Details</a>
                     <a href="#" class="btn btn-secondary">Check Update</a>
                 </div>
             </div>
