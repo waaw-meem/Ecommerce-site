@@ -1,5 +1,5 @@
 <div class="seller-auth">
-    <div class="form-container">
+    <div class="form-container" *ngIf="!showLoggin">
         <h2>Registration Form</h2>
         <form #userSignUp="ngForm" (submit)="userAuth(userSignUp.value)">
             <div class="form-group">
@@ -23,26 +23,36 @@
         </form>
     </div>
 
-
     <!------ Login Form ------>
-    <!-- <p class="error-p">{{authError}}</p> -->
-    <!-- <div class="form-container">
+    <div class="form-container" *ngIf="showLoggin">
         <h2>Login Form</h2>
-        <form #userSignIn="ngForm" (ngSubmit)="userSignIn(userSignIn.value)">
+        <p class="error-p">{{authError}}</p>
+        <form #userSignIn="ngForm" (ngSubmit)="userLogin(userSignIn.value)">
         <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" ngModel required>
+                <input type="email" id="email" name="email" ngModel
+                 required 
+                 #email="ngModel"
+                 email
+                 >
+            <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Enter the valid value</span></p>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" ngModel required>
+                <input type="password" id="password" 
+                name="password" ngModel 
+                required #password="ngModel" 
+                minlength="2"
+                maxlength="20">
+                <p class="invalid-input"><span *ngIf="password.invalid && password.touched">Enter the valid value</span></p>
+
             </div>
             <div class="form-group">
                 <p class="info-link">Don't have an Account? Click here <a (click)="goToSignUp()">SignUp</a></p>
                 </div>
             <div class="form-group">
-                <input type="submit" value="Login">
+                <input [disabled]="userSignIn.invalid" type="submit" value="Login">
             </div>
         </form>
-    </div> -->
+    </div>
 </div>

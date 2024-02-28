@@ -62,3 +62,17 @@ p.info-link a {
     color: red;
     text-align: center;
 }
+
+.invalid-input{
+    color: red;
+    text-align: left;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+.error-p{
+    color: red;
+    text-align: center;
+}

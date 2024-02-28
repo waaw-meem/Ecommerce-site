@@ -9,7 +9,6 @@ export interface signIn{
     password:string,
 }
 
-
 export interface product{
    name:string,
    price:number,
