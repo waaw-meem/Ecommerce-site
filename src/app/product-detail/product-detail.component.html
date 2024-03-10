@@ -10,7 +10,10 @@
             <p>{{singleProductDetail.description}}</p>
 
             <div class="flex-wrapper-btn">
-                <button>Add to Cart</button>
+                <!---- ADD TO CART FUNCTIONALITY --->
+                <button *ngIf="!removeCart" (click)="addToCart()">Add to Cart</button>
+                <button *ngIf="removeCart" (click)="removeToCart(singleProductDetail.id)">Remove Cart</button>
+
                 <button>Buy Now</button>
             </div>
 

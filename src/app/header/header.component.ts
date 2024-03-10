@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
  userName!:string
  searchProductResult:undefined | product[]
 
+ cartItem = 0
+
  constructor(private router:Router,private searchAPI:ProductService){}
 
  ngOnInit(): void {
@@ -44,6 +46,23 @@ export class HeaderComponent implements OnInit {
        this.menuType = 'default'
      }
     }
+   })
+
+   // ADDING DYNAMIC COUNT
+   // ADDING LOCALCART IF IT IS PRESENT IT IS ASSIGN IN LOCALCARTINFORMATION
+   let localCartInformation = localStorage.getItem('localCart')
+   // IF LOCAL CART INFORMATION IS AVAILABLE MEANS THAT IF LOCALCART IS PRESENT THEN
+   if(localCartInformation){
+    // THIS TECHNIQUE WILL WORK BUT THERE IS ONE ISSUE
+    // WHEN USER ADD DATA IT WILL NOT INCREASE COUNT UNTIL USER REFRESH THE PAGE
+    // THIS SCENERIO IS BAD PRACTICE TO USER EXPERIENCE
+    this.cartItem = JSON.parse(localCartInformation).length
+   }
+
+   // TO OVERCOME THE ABOVE SCENERIO WE ADD THIS FUNCTIONALITY FROM SERVICE 
+   this.searchAPI.cartCounterCustomEvent.subscribe((items) => {
+    // CARTITEM VALUE CHANGE ACCORDING TO THE LENGTH OF THE ITEM
+    this.cartItem = items.length
    })
  }
 
