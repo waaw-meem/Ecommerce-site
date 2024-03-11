@@ -95,13 +95,13 @@ export class ProductService {
   }
 
   // FUNCTION FOR GETTING PRODUCTS ACCORDING TO THE USERS
-  getCartList(userId:string){
-    return this.http.get<product[]>('http://localhost:3000/cart?userId='+userId,
-    {observe:'response'}).subscribe((result)=>{
-      console.log(result)
-      if(result && result.body){
-        this.cartCounterCustomEvent.emit(result.body)
-      }
-    })
-  }
+  // getCartList(userId:string){
+  //   return this.http.get<product[]>('http://localhost:3000/cart?userId='+userId,
+  //   {observe:'response'}).subscribe((result)=>{
+  //     console.log(result)
+  //     if(result && result.body){
+  //       this.cartCounterCustomEvent.emit(result.body)
+  //     }
+  //   })
+  // }
 }
