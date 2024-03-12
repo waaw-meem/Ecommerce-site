@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { cart, product } from '../data-type';
+import { cart, checkout, product } from '../data-type';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -60,6 +60,7 @@ export class ProductService {
     if(!localCart){
       // THEN IT SET DATA IN LOCAL STORAGE
       localStorage.setItem('localCart', JSON.stringify([data]))
+      this.cartCounterCustomEvent.emit([data])
     }else{
      // OTHERWISE LOCALCART BE PARSED AND IT IS ADDED IN CART DATA VAR
      // JSON.parse() is a built-in JavaScript function that converts a JSON string into a JavaScript object.
@@ -95,13 +96,35 @@ export class ProductService {
   }
 
   // FUNCTION FOR GETTING PRODUCTS ACCORDING TO THE USERS
-  // getCartList(userId:string){
-  //   return this.http.get<product[]>('http://localhost:3000/cart?userId='+userId,
-  //   {observe:'response'}).subscribe((result)=>{
-  //     console.log(result)
-  //     if(result && result.body){
-  //       this.cartCounterCustomEvent.emit(result.body)
-  //     }
-  //   })
-  // }
+  getCartList(userId:string){
+    return this.http.get<product[]>('http://localhost:3000/cart?userId='+userId,
+    {observe:'response'}).subscribe((result)=>{
+      console.log(result)
+      if(result && result.body){
+        this.cartCounterCustomEvent.emit(result.body)
+      }
+    })
+  }
+
+  // REMOVE FROM CART API
+  removeToCart(cartId:string){
+    return this.http.delete(`http://localhost:3000/cart/${cartId}`)
+  }
+
+  // CART PAGE API
+  getcartPage(){
+    const userInfo = localStorage.getItem('user')
+    // Parse the retrieved data as JSON if it exists, and access the first element of the resulting array
+    const userData = userInfo && JSON.parse(userInfo)[0]
+    return this.http.get('http://localhost:3000/cart?userId='+userData.id)
+
+
+  }
+
+
+  // ORDER CART FINALLY
+  OrderNow(data:checkout){
+    return this.http.post('http://localhost:3000/order=',data)
+
+  }
 }

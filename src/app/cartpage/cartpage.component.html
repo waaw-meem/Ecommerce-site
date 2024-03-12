@@ -1,0 +1,38 @@
+<div class="main-wrapper">
+    <div class="row">
+        <div class="col-8">
+           <div class="detail-wrapper">
+            <ul *ngFor="let cart of cartDataInfo">
+                <li>
+                <img src="{{cart.imageUrl}}" alt="">
+                </li>
+                <li>
+                    <h5>{{cart.name}}</h5>
+                </li>
+                <li>
+                  <p>{{cart.price}}</p>
+                </li>
+                <li>
+                   <p>{{cart.quantity}}</p>
+                </li>
+                <li>
+                    <button>Remove Cart</button>
+                </li>
+            </ul>
+           </div> 
+        </div>
+        <div class="col-4">
+            <div class="summary-wrapper">
+            <ul>
+                <li><span>Amount:</span><span>{{pricesummary.price}}</span></li>
+                <li><span>Tax:</span><span>{{pricesummary.tax}}</span></li>
+                <li><span>Delivery: </span><span>{{pricesummary.delivery}}</span></li>
+                <li><span>Discount:</span><span>{{pricesummary.discount}}</span></li>
+                <li><span><h4>Total</h4></span> <span><h4>{{pricesummary.total}}</h4></span></li>
+                </ul>
+
+                <button (click)="checkoutRouting()">Confirm Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,7 @@ export interface product{
    description:string,
    imageUrl:string,
    id:string,
+   productId:string | undefined
    quantity:undefined | number
 }
 
@@ -30,3 +31,18 @@ export interface cart{
     productId:string | undefined
     userId:string | undefined
  }
+
+ export interface priceSummary{
+    price:number
+    discount:number
+    tax:number,
+    delivery:number,
+    total:number
+}
+
+export interface order{
+    name:string
+    email:string
+    userId:string
+    totalPrice:number
+}

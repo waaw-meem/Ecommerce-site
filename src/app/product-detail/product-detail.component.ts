@@ -15,6 +15,9 @@ export class ProductDetailComponent implements OnInit {
   singleProductDetail: undefined | product
   productQauntity: number = 1
 
+  // CURRENT PRODUCT ITEM ON SCREEN
+  currentProductData:product|undefined
+
   // REMOVE BUTTON FUNCTIONALITY BOOLEAN VALUE
   removeCart = false
 
@@ -42,6 +45,23 @@ export class ProductDetailComponent implements OnInit {
       } else {
         this.removeCart = false
       }
+    }
+
+    // ADDING REMOVE FUNCTIONALITY AFTER LOGIN
+    let user = localStorage.getItem('user');
+
+    if(user){
+      let userId = user && JSON.parse(user)[0].id;
+      this.productService.getCartList(userId);
+      this.productService.cartCounterCustomEvent.subscribe((result)=>{
+        let item = result.filter((item:product) => productID === item?.productId)
+        if(item.length){
+          // CURRENT PRODUCT ITEM ON SCREEN
+          this.currentProductData =item[0]
+
+          this.removeCart = true
+        }
+      })
     }
 
   }
@@ -94,9 +114,8 @@ export class ProductDetailComponent implements OnInit {
         this.productService.cartProductInsertion(cartData).subscribe((result) => {
           if (result) {
             console.log('Product ADDED')
-            // this.productService.getCartList(userId);
-            // this.removeCart = true
-
+            this.productService.getCartList(userId);
+            this.removeCart = true
           }
         })
       }
@@ -106,9 +125,20 @@ export class ProductDetailComponent implements OnInit {
   // REMOVE CART FUNCTION
   removeToCart(productIdString: string) {
     // const productId = parseInt(productIdString, 10); // Convert string to number
+    if(!localStorage.getItem('user')){
     this.productService.removeCart(productIdString);
-
-    this.removeCart = false
-
+    }else{
+      let user = localStorage.getItem('user');
+      // USER ID
+      let userId = user && JSON.parse(user)[0].id;
+      console.log(this.currentProductData)
+      this.currentProductData && this.productService
+      .removeToCart(this.currentProductData.id).subscribe((result) => {
+        if(result){
+          this.productService.getCartList(userId)
+        }
+      })
+      this.removeCart = false
+    }
   }
 }

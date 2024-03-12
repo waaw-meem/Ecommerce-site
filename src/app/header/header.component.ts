@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit {
       const userData = userInfo && JSON.parse(userInfo)[0]
       this.userName = userData.name
       this.menuType = 'user'
+
+      // TO SHOW CART COUNTER AS IT IS AT HOME
+      this.searchAPI.getCartList(userData.id)
      }
      else{
        console.log('Not Working')
@@ -75,6 +78,10 @@ export class HeaderComponent implements OnInit {
  userLogout(){
   localStorage.removeItem('user')
   this.router.navigate(['/'])
+
+  // FIXING CART COUNTER
+  // THIS STATEMENT WE USED TO SET CART COUNTER ZERO AFTER LOGOUT
+  this.searchAPI.cartCounterCustomEvent.emit([]) 
  }
 
 

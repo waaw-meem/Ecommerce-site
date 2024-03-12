@@ -1,0 +1,27 @@
+<div class="checkout-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>CheckOut Process</h2>
+                <form #order="ngForm" (submit)="orderNow(order.value)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+            <div class="col-5">
+              <div class="info-wrapper">
+                <h3>Your Total amount will be : {{totalPrice}}</h3>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

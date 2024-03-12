@@ -15,6 +15,8 @@ import { SellerUpdateProductComponent } from './seller-update-product/seller-upd
 import { SearchComponent } from './search/search.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { CartpageComponent } from './cartpage/cartpage.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
     SellerUpdateProductComponent,
     SearchComponent,
     ProductDetailComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    CartpageComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
