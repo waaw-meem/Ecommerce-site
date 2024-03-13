@@ -12,6 +12,7 @@ import { ProductDetailComponent } from "./product-detail/product-detail.componen
 import { UserAuthComponent } from "./user-auth/user-auth.component";
 import { CartpageComponent } from "./cartpage/cartpage.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
+import { OrderListComponent } from "./order-list/order-list.component";
 
 
 const appRoutes : Routes = [
@@ -24,7 +25,8 @@ const appRoutes : Routes = [
     {path:'details/:productId',component:ProductDetailComponent},
     {path:'user-auth',component:UserAuthComponent},
     {path:'cart-page',component:CartpageComponent},
-    {path:'checkout',component:CheckoutComponent}
+    {path:'checkout',component:CheckoutComponent},
+    {path:'order-list',component:OrderListComponent}
 
 ]
 

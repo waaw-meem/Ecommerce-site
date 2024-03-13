@@ -1,0 +1,44 @@
+<div class="my-orders">
+    <h1>My Orders</h1>
+    <div class="row">
+        <div class="col-sm-2">
+            <span>Order</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Order Id</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Price</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Status</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Action</span>
+        </div>
+    </div>
+
+    <!-- Add ngIf directive to check if userCartData is defined -->
+    <div *ngIf="userCartData">
+        <!-- Iterate over userCartData only if it's defined -->
+        <div *ngFor="let userCart of userCartData">
+            <div class="row">
+                <div class="col-2">
+                    <span>Image</span>
+                </div>
+                <div class="col-2">
+                    <span>{{userCart.id}}</span>
+                </div>
+                <div class="col-2">
+                    <span>{{userCart.totalPrice}}</span>
+                </div>
+                <div class="col-2">
+                    <span>Status</span>
+                </div>
+                <div class="col-2">
+                    <span>Action</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

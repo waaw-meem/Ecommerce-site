@@ -43,6 +43,7 @@ export interface cart{
 export interface order{
     name:string
     email:string
-    userId:string
-    totalPrice:number
+    userId:string | undefined
+    totalPrice:number | undefined
+    id:number|undefined
 }

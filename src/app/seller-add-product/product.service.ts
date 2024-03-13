@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { cart, checkout, product } from '../data-type';
+import { cart, order, product } from '../data-type';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -117,14 +117,18 @@ export class ProductService {
     // Parse the retrieved data as JSON if it exists, and access the first element of the resulting array
     const userData = userInfo && JSON.parse(userInfo)[0]
     return this.http.get('http://localhost:3000/cart?userId='+userData.id)
-
-
   }
-
 
   // ORDER CART FINALLY
-  OrderNow(data:checkout){
-    return this.http.post('http://localhost:3000/order=',data)
-
+  OrderNow(data:order){
+    return this.http.post('http://localhost:3000/order',data)
   }
+
+
+  orderList() {
+    let userStore = localStorage.getItem('user');
+    let userData = userStore && JSON.parse(userStore)[0].id;
+    return this.http.get<order[]>('http://localhost:3000/order?userId='+userData);
+  }
+
 }
