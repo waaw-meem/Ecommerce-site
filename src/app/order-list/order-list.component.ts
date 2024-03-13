@@ -13,9 +13,17 @@ export class OrderListComponent implements OnInit{
   constructor(private productService:ProductService){}
 
   ngOnInit(): void {
-   this.productService.orderList().subscribe((result) => {
-   this.userCartData = result
-   })
-  }
+    this.getOrderList();
+    }
+    cancelorder(orderId: string | undefined) {
+    orderId && this.productService.cancelProductOrder(orderId).subscribe((result)=>{
+    this.getOrderList();
+    })
+    }
+    getOrderList(){
+    this.productService.orderList().subscribe((result)=>{
+    this.userCartData=result;
+    })
+    }
 
 }

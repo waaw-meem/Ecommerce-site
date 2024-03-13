@@ -26,8 +26,10 @@
           <li><a href="#">Categories</a></li>
           <!-- <li><a routerLink="seller">Seller</a></li> -->
           <li><a (click)="userLogout()">LogOut</a></li>
+          <li><a routerLink="order-list">My Orders</a></li>
           <li><a href="#">{{userName  | titlecase}}</a></li>
-          <li><a routerLink="cart-page">Cart {{cartItem}}</a></li>
+          <li><a [routerLink]="cartItem>0?' cart-page': null">Cart{{cartItem}}</a></li>
+          <!-- <li><a routerLink="cart-page">Cart {{cartItem}}</a></li> -->
         </ul>
         <ul *ngSwitchCase="'seller'">
           <li><a  routerLink="seller-home">Product List</a></li>

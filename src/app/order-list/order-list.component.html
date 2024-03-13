@@ -36,7 +36,9 @@
                     <span>Status</span>
                 </div>
                 <div class="col-2">
-                    <span>Action</span>
+                <span *ngIf="userCart.id !== undefined">
+                    <button (click)="cancelorder(userCart.id?.toString())">Cancel Order</button>
+                </span>
                 </div>
             </div>
         </div>

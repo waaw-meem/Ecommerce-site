@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
+                <p>{{orderMessage}}</p>
                 <h2>CheckOut Process</h2>
                 <form #order="ngForm" (ngSubmit)="proceedNow(order.value)">
                     <div class="form-group">

@@ -131,4 +131,16 @@ export class ProductService {
     return this.http.get<order[]>('http://localhost:3000/order?userId='+userData);
   }
 
+  // REMOVING CART ITEMS AND COUNT AFTER CHECKOUT
+  removeCartItemsFromCheckout(cartId:string){
+    return this.http.delete(`http://localhost:3000/cart/${cartId}`,{observe:'response'})
+    .subscribe((result) => {
+      this.cartCounterCustomEvent.emit([])
+    })
+  }
+
+  // DELETE PRODUCT FROM CART
+  cancelProductOrder(orderId:string){
+      return this.http.delete('http://localhost:3000/order/' + orderId)
+  }
 }
