@@ -11,10 +11,13 @@ import { product } from '../data-type';
 })
 
 export class HeaderComponent implements OnInit {
- // Functionality For Changing NavBar
+ // FUNCTIONALITY FOR CHANING NAVBAR
  menuType:string = 'default'
+
  sellerName!:string
  userName!:string
+
+ // DECLARING VARIABLE AND ASSIGNING PRODUCT DATA TYPE
  searchProductResult:undefined | product[]
 
  cartItem = 0
@@ -84,28 +87,37 @@ export class HeaderComponent implements OnInit {
   this.searchAPI.cartCounterCustomEvent.emit([]) 
  }
 
-
+// This function is called when a key is released in the input field
  searchProduct(query:KeyboardEvent){
+  // Checking if the event object exists
   if(query){
+    // Getting the input element
     const element = query.target as HTMLInputElement
+    // Call the searchProducts method of the searchAPI service passing the input value
     this.searchAPI.searchProducts(element.value).subscribe((data) => {
-      console.log(data)
+      // Limiting the length of data to 5
       if(data.length>5){
         data.length = 5
       }
+      // Assigning the retrieved data to the searchProductResult property
       this.searchProductResult = data
     })
   }
  }
 
+ // This function is called when the input field loses focus
  hideSearch(){
+  // Setting the searchProductResult property to undefined
   this.searchProductResult = undefined
  }
 
+ // This method navigates to a specific route with a parameter
  searchValue(val:string){
+  // Using the router service to navigate to the 'search' route with the value as a parameter
   this.router.navigate([`search/${val}`])
  }
 
+ // REDIRECTING THE SEARCH PRODUCT
  redirectToSearch(id:string){
   this.router.navigate(['/search/'+id])
  }

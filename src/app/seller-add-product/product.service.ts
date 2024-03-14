@@ -46,6 +46,7 @@ export class ProductService {
     return this.http.get<product[]>('http://localhost:3000/products?_limit=8');
   }
 
+  // SEARCH BAR SEARCH PRODUCT API
   searchProducts(query:string): Observable<product[]> {
     return this.http.get<product[]>(`http://localhost:3000/products?q=${query}`);
   }

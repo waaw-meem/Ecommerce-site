@@ -9,12 +9,15 @@ import { SellerService } from './seller.service';
   styleUrls: ['./seller-auth.component.css']
 })
 export class SellerAuthComponent implements OnInit {
+  // CONDITION TO SHOW LOGIN AND SIGNUP FORM
   showLoggin = false
+  // AUTH ERROR MESSAGE
   authError:string=''
 
   constructor(private sellerSignup:SellerService,
               private router:Router){}
   
+  // SIGN UP FUNCTION           
   signUp(data:signUp){
     this.sellerSignup.userSignUp(data)
   }
@@ -41,10 +44,3 @@ export class SellerAuthComponent implements OnInit {
   }
 
 }
-
-
-// .subscribe((response) => {
-//   if(response){
-//     this.router.navigate(['seller-home'])
-//   }
-// })

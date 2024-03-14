@@ -1,6 +1,13 @@
 <div class="seller-auth">
+    <!--------- SIGNUP HTML TAGS ------------->
     <div *ngIf="!showLoggin" class="form-container">
         <h2>Registration Form</h2>
+        <!--------FORM TAG IS USED TO GET DATA ------>
+        <!--------#formSignUp="ngForm": This is a template reference variable named formSignUp. 
+        It allows us to reference this form in the template itself. 
+        The ngForm directive is used to create an Angular form instance and bind it to the formSignUp variable.----->
+        <!---(submit)="signUp(formSignUp.value)": This is an event binding that listens for the form submission event. 
+        When the form is submitted, it calls the signUp method defined in the component class and passes the form's value as an argument.----->
         <form #formSignUp="ngForm" (submit)="signUp(formSignUp.value)">
             <div class="form-group">
                 <label for="name">Name</label>
